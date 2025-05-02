@@ -7,7 +7,8 @@ import json
 app = FastAPI()
 
 # تحميل الموديل والتوكنايزر
-model_path = "C:/Users/Yazied/finall projectt/needs_model"
+model_path = "./needs_model"
+
 
 model = BertForSequenceClassification.from_pretrained(model_path)
 tokenizer = BertTokenizer.from_pretrained(model_path)
@@ -34,3 +35,4 @@ def predict(input: TextInput):
         "sub_category": label_info["sub_category"],
         "confidence": float(probs[0][predicted_id])
     }
+
